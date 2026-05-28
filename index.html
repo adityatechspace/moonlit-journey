@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For Usharani ✨</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="progress-bar">
+  <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- Welcome -->
+
+<div class="screen active" id="welcomeScreen">
+
+  <div class="glass">
+
+    <h1>Welcome</h1>
+
+    <p>
+      A small interactive journey was made for Usharani.
+    </p>
+
+    <button onclick="openTyping()">
+      Begin →
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Typing -->
+
+<div class="screen" id="typingScreen">
+
+  <div class="typing-box">
+
+    <div class="typing-text" id="typingText"></div>
+
+    <button id="typingBtn"
+      style="display:none;margin-top:40px;"
+      onclick="openCards()">
+
+      Continue
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Cards -->
+
+<div class="screen" id="cardScreen">
+
+  <h1 class="title">Usharani ✨</h1>
+
+  <p class="subtitle">
+    Some thoughts worth exploring.
+  </p>
+
+  <div class="card-area" id="cardArea"></div>
+
+  <button id="cardBtn"
+    style="display:none;margin-top:25px;"
+    onclick="openPaths()">
+
+    Continue
+
+  </button>
+
+</div>
+
+<!-- Paths -->
+
+<div class="screen" id="pathScreen">
+
+  <h1 class="title">Choose a Path</h1>
+
+  <p class="subtitle">
+    Pick something interesting.
+  </p>
+
+  <div class="path-grid">
+
+    <div class="path-card"
+      onclick="openArrowGame()">
+
+      <div class="path-icon">🎮</div>
+
+      <h3>Arrow Challenge</h3>
+
+    </div>
+
+    <div class="path-card"
+      onclick="openMemoryGame()">
+
+      <div class="path-icon">🧠</div>
+
+      <h3>Memory Lights</h3>
+
+    </div>
+
+    <div class="path-card"
+      onclick="openStarGame()">
+
+      <div class="path-icon">⭐</div>
+
+      <h3>Hidden Surprise</h3>
+
+    </div>
+
+    <div class="path-card"
+      onclick="openHeartRestore()">
+
+      <div class="path-icon">❤️</div>
+
+      <h3>Fill The Heart</h3>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Arrow -->
+
+<div class="screen" id="arrowScreen">
+
+  <h1 class="title">Arrow Challenge</h1>
+
+  <p class="subtitle">
+    Match the sequence using keyboard arrows.
+  </p>
+
+  <div class="sequence">
+    ⬆ ⬇ ⬅ ➡
+  </div>
+
+  <div class="progress" id="arrowProgress">
+    Progress: 0 / 4
+  </div>
+
+  <div class="success" id="arrowSuccess">
+    Perfect, your style has a very unfair effect on me. 😱
+  </div>
+
+  <button id="arrowBtn"
+    style="display:none;margin-top:30px;"
+    onclick="openPaths()">
+
+    Back
+
+  </button>
+
+</div>
+
+<!-- Memory -->
+
+<div class="screen" id="memoryScreen">
+
+  <h1 class="title">Memory Lights</h1>
+
+  <p class="subtitle">
+    Repeat the glowing sequence.
+  </p>
+
+  <div class="memory-grid">
+
+    <div class="memory-box" data-id="0"></div>
+    <div class="memory-box" data-id="1"></div>
+    <div class="memory-box" data-id="2"></div>
+    <div class="memory-box" data-id="3"></div>
+
+  </div>
+
+  <div class="success" id="memorySuccess">
+    Beauty with the brain ✨
+  </div>
+
+  <button id="memoryBtn"
+    style="display:none;margin-top:25px;"
+    onclick="openPaths()">
+
+    Back
+
+  </button>
+
+</div>
+
+<!-- Star -->
+
+<div class="screen" id="starScreen">
+
+  <h1 class="title">Find the Hidden Star</h1>
+
+  <p class="subtitle">
+    Somewhere on the screen.
+  </p>
+
+  <div class="star-area">
+
+    <div class="hidden-star"
+      id="hiddenStar">
+
+      ⭐
+
+    </div>
+
+  </div>
+
+  <div class="success" id="starSuccess">
+    If elegance had a personality, it would probably sound a lot like you. 😍
+  </div>
+
+  <button id="starBtn"
+    style="display:none;margin-top:20px;"
+    onclick="openPaths()">
+
+    Back
+
+  </button>
+
+</div>
+
+<!-- HEART -->
+
+<div class="screen" id="heartRestoreScreen">
+
+  <h1 class="title">Fill the Heart</h1>
+
+  <p class="subtitle">
+    Catch floating pieces to slowly fill the heart.
+  </p>
+
+  <div class="heart-game-area">
+
+    <div class="heart-container">
+
+      <svg viewBox="0 0 200 200" class="heart-svg">
+
+        <!-- Border -->
+
+        <path
+          d="M100 180
+             L20 100
+             A40 40 0 1 1 100 50
+             A40 40 0 1 1 180 100 Z"
+
+          fill="white"
+          stroke="black"
+          stroke-width="6"
+        />
+
+        <!-- Fill -->
+
+        <clipPath id="heartClip">
+
+          <path
+            d="M100 180
+               L20 100
+               A40 40 0 1 1 100 50
+               A40 40 0 1 1 180 100 Z"
+          />
+
+        </clipPath>
+
+        <rect
+          id="heartFill"
+          x="0"
+          y="200"
+          width="200"
+          height="0"
+          fill="#ff4d6d"
+          clip-path="url(#heartClip)"
+        />
+
+      </svg>
+
+    </div>
+
+  </div>
+
+  <div class="progress" id="heartProgress">
+    Filled: 0%
+  </div>
+
+</div>
+
+<!-- MOON POPUP -->
+
+<div class="screen" id="moonScreen">
+
+  <div class="moon-popup">
+
+    <div class="moon-corner">
+      🌙❤️
+    </div>
+
+    <h1 class="moon-title">
+
+      100% Filled ❤️
+
+    </h1>
+
+    <p class="moon-question">
+
+      Moon is beautiful, isn't it?
+
+    </p>
+
+    <div class="moon-buttons">
+
+      <button onclick="sendChoice('Yes it is true')">
+
+        Yes it is true ✨
+
+      </button>
+
+      <button onclick="sendChoice('No it is not true')">
+
+        No it is not true 🌙
+
+      </button>
+
+      <button onclick="sendChoice('Will see and tell later')">
+
+        Will see and tell later 🙂
+
+      </button>
+
+    </div>
+
+    <div id="responseMessage"></div>
+
+    <button
+      id="heartRestoreBtn"
+      style="display:none;margin-top:25px;"
+      onclick="openFinal()">
+
+      Continue
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Final -->
+
+<div class="screen" id="finalScreen">
+
+  <div class="final-box">
+
+    <h1>✨ Usharani ✨</h1>
+
+    <p>
+
+      Thanks for spending time here.<br><br>
+
+      Some people leave a genuinely
+      good impression without trying.<br><br>
+
+      You are one of them 🌸<br><br>
+
+      — Made specially for you
+
+    </p>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
