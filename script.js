@@ -197,10 +197,15 @@ function nextCard(){
 
     renderCards();
 
-  }else{
+    /* Show Continue button
+       immediately after 3rd card */
 
-    document.getElementById("cardBtn")
-      .style.display = "inline-block";
+    if(current === quotes.length - 1){
+
+      document.getElementById("cardBtn")
+        .style.display = "inline-block";
+
+    }
 
   }
 
