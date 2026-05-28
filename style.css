@@ -325,12 +325,12 @@ button:hover{
 
   position:absolute;
 
-  width:70px;
-  height:70px;
+  width:72px;
+  height:72px;
 
   border-radius:50%;
 
-  background:white;
+  background:rgba(255,255,255,0.95);
 
   display:flex;
   justify-content:center;
@@ -338,15 +338,70 @@ button:hover{
 
   cursor:pointer;
 
-  box-shadow:0 10px 20px rgba(0,0,0,0.08);
-
-  animation:floatPiece 14s linear infinite;
+  font-size:1.7rem;
 
   user-select:none;
 
-  font-size:1.5rem;
+  animation:
+    floatPiece 14s linear infinite,
+    glowPulse 2s ease-in-out infinite;
 
   transition:0.3s;
+
+  /* Glow */
+
+  box-shadow:
+    0 0 10px rgba(255,77,109,0.5),
+    0 0 20px rgba(255,77,109,0.4),
+    0 0 35px rgba(255,77,109,0.3);
+
+  backdrop-filter:blur(4px);
+
+  border:2px solid rgba(255,255,255,0.8);
+
+}
+
+.heart-piece:hover{
+
+  transform:scale(1.15);
+
+  box-shadow:
+    0 0 15px rgba(255,77,109,0.7),
+    0 0 30px rgba(255,77,109,0.6),
+    0 0 50px rgba(255,77,109,0.5);
+
+}
+
+/* Soft Glow Animation */
+
+@keyframes glowPulse{
+
+  0%{
+
+    box-shadow:
+      0 0 10px rgba(255,77,109,0.4),
+      0 0 20px rgba(255,77,109,0.3),
+      0 0 35px rgba(255,77,109,0.2);
+
+  }
+
+  50%{
+
+    box-shadow:
+      0 0 18px rgba(255,77,109,0.8),
+      0 0 35px rgba(255,77,109,0.6),
+      0 0 60px rgba(255,77,109,0.4);
+
+  }
+
+  100%{
+
+    box-shadow:
+      0 0 10px rgba(255,77,109,0.4),
+      0 0 20px rgba(255,77,109,0.3),
+      0 0 35px rgba(255,77,109,0.2);
+
+  }
 
 }
 
