@@ -117,7 +117,7 @@ const quotes = [
 
 {
   emoji:"✨",
-  text:"Usharani, You have the kind of smile that people remember for a long time.",
+  text:"My love, You have the kind of smile that people remember for a long time.",
   small:"Some people naturally brighten spaces."
 },
 
@@ -426,7 +426,7 @@ async function sendChoice(answer){
 
           page: "Moon Choice",
 
-          person: "Usharani"
+          person: "Himanshi"
 
         })
 
